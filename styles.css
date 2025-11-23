@@ -364,6 +364,18 @@ body {
     font-weight: 400;
 }
 
+.content-card a {
+    color: #7c78e6;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 400;
+}
+
+.content-card a:hover {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
 .data-info {
     display: flex;
     flex-direction: column;
@@ -451,14 +463,13 @@ body {
 }
 
 .reference-list a {
-    color: #3a3a3a;
+    color: #7c78e6;
     text-decoration: none;
     transition: color 0.3s;
     font-weight: 400;
 }
 
 .reference-list a:hover {
-    color: #1a1a1a;
     text-decoration: underline;
     font-weight: 600;
 }

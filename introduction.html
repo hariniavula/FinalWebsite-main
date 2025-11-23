@@ -31,19 +31,26 @@
                 <h2>About the Data</h2>
                 <div class="data-info">
                     <div class="data-item">
-                        <strong>Size:</strong>
-                        <p>The dataset contains...</p>
+                        <strong>Source:</strong>
+                        <p>We are using a “Shopping Behaviours” dataset from Kaggle that was posted a month ago. The dataset provides information about consumer behavior and shopping habits across different demographics, locations, and product categories.</p>
                     </div>
                     <div class="data-item">
-                        <strong>Source:</strong>
-                        <p>Talk about Kaggle</p>
+                        <strong>Size:</strong>
+                        <p>It includes 3,900 customer records with 18 attributes describing purchase details, shopping tendencies, and feedback.
+</p>
                     </div>
                     <div class="data-item">
                         <strong>Key Attributes:</strong>
                         <p>
-                            The dataset includes (rows, columns, types of data).
+                           Customer ID (int), Age (int), Gender (string), Item Purchased (string), Category (string), Purchase Amount (USD) (int), Location (string), Size (string), Color (string), Season (string), Review Rating (float64), Subscription Status (string), Shipping Type (string), Discount Applied (string), Promo Code Used (string), Previous Purchases (int), Payment Method (string), Frequency of Purchases (string)
                         </p>
                     </div>
+                    <div class="data-item">
+                        <strong>Pre-Processing:</strong>
+                        <p>
+                           First, we handled missing and null values. Next, we verified that numerical columns like Age, Purchase Amount (USD), and Review Rating were already in appropriate numerical formats. We then checked and confirmed that categorical variables such as Location, Category, and Item Purchased were consistently formatted. Finally, we ensured there were no duplicates.
+                    </div>
+
                 </div>
             </div>
         </div>
