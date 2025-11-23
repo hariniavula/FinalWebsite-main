@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Behavior - Introduction</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-page">
+        <div class="content-container">
+            <h1 class="page-title">Introduction.</h1>
+            
+            <div class="content-card">
+                <h2>Project Overview</h2>
+                <p>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel condimentum est, vitae sagittis libero. Sed nunc ante, placerat at dignissim id, bibendum suscipit tortor. Morbi a dapibus orci, vel volutpat turpis. Suspendisse egestas enim in sem auctor pulvinar. In a elit dui. Nunc tortor lorem, mattis ut placerat id, iaculis a lectus. Proin pellentesque bibendum nisl, nec ornare leo vestibulum et.
+
+
+                </p>
+                <p>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel condimentum est, vitae sagittis libero. Sed nunc ante, placerat at dignissim id, bibendum suscipit tortor. Morbi a dapibus orci, vel volutpat turpis. Suspendisse egestas enim in sem auctor pulvinar. In a elit dui. Nunc tortor lorem, mattis ut placerat id, iaculis a lectus. Proin pellentesque bibendum nisl, nec ornare leo vestibulum et.
+
+
+                </p>
+            </div>
+
+            <div class="content-card">
+                <h2>About the Data</h2>
+                <div class="data-info">
+                    <div class="data-item">
+                        <strong>Size:</strong>
+                        <p>The dataset contains...</p>
+                    </div>
+                    <div class="data-item">
+                        <strong>Source:</strong>
+                        <p>Talk about Kaggle</p>
+                    </div>
+                    <div class="data-item">
+                        <strong>Key Attributes:</strong>
+                        <p>
+                            The dataset includes (rows, columns, types of data).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                initializeMenu();
+            });
+
+        function initializeMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

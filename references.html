@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Behavior - References</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-page">
+        <div class="content-container">
+            <h1 class="page-title">References.</h1>
+            
+            <div class="content-card">
+                <h2>Data Source</h2>
+                <ul class="reference-list">
+                    <li>
+                         Dataset:
+                        <a href="#" target="_blank">[dataset name and link</a><br>
+                        <p>Description:</p>
+                    </li>
+                   
+                </ul>
+            </div>
+
+           
+             <div class="content-card">
+                <h2>Academic References</h2>
+                <ul class="reference-list">
+                    <li>
+                        Title:
+                        
+                        <p>
+                            Description
+                        </p>
+                        <em>Citation:</em>
+
+                        </li>
+                    <li>
+                         Title:
+                        
+                        <p>
+                            Description
+                        </p>
+                        <em>Citation:</em>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+
+            
+ <div class="content-card">
+                <h2>Tools & Libraries</h2>
+                <ul class="reference-list">
+                    <p>
+                        Altair, D3.js, Python, Jupyter Notebook, etc. whatever libaries we have
+                        
+                    </p>
+                    
+                    
+                </ul>
+
+            </div>
+            
+            <div class="content-card">
+                <h2>Project Information</h2>
+                <p>
+                    <strong>Course: </strong> DS 4200 - Information Visualization<br>
+                    <strong>School: </strong> Northeastern University<br>
+                    <strong>Semester: </strong> Fall 2025<br>
+                    <strong>Team Members: </strong> Our names <br>
+                    <strong>GitHub Repository:</strong>
+                    <a href="#" target="_blank">GitHub repository link</a>
+            
+            </div>
+        </div>
+    </main>
+
+   <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                initializeMenu();
+            });
+
+        function initializeMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

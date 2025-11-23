@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Behavior - Visualizations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-page">
+        <div class="content-container">
+            <h1 class="page-title">Visualizations.</h1>
+            
+            <!-- Visualization 1 -->
+            <div class="viz-card">
+                <h2 class="viz-title">Visualization 1: [Insert Title]</h2>
+                
+                  <div class="viz-placeholder">
+        <iframe src="DS4200_Project-main/choropleth.html" 
+                width="100%" 
+                height="600" 
+                frameborder="0"
+                style="border: none;">
+        </iframe>
+    </div>
+
+                <div class="viz-description">
+                     <div>
+                        <h3>Description</h3>
+                        <p>
+                            Marks, Channels, Type of Visualization
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Interactive Features</h3>
+                        <p>
+                            tooltips, filters, hover 
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Key Takeaways</h3>
+                        <p>
+                           Insights, patterns, trends, story
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization 2 -->
+            <div class="viz-card">
+                <h2 class="viz-title">Visualization 2: [Insert Title]</h2>
+                
+                   <div class="viz-placeholder">
+        <iframe src="DS4200_Project-main/seasonal_category_popularity.html" 
+                width="100%" 
+                height="600" 
+                frameborder="0"
+                style="border: none;">
+        </iframe>
+    </div>
+                <div class="viz-description">
+                     <div>
+                        <h3>Description</h3>
+                        <p>
+                            Marks, Channels, Type of Visualization
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Interactive Features</h3>
+                        <p>
+                            tooltips, filters, hover 
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Key Takeaways</h3>
+                        <p>
+                           Insights, patterns, trends, story
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization 3 -->
+            <div class="viz-card">
+                <h2 class="viz-title">Visualization 3: [Insert Title]</h2>
+                
+                
+                <div class="viz-placeholder">
+                    <iframe src="DS4200_Project-main/boxplot.png" 
+                width="100%" 
+                height="600" 
+                frameborder="0"
+                style="border: none;">
+        </iframe>
+                </div>
+
+                <div class="viz-description">
+                     <div>
+                        <h3>Description</h3>
+                        <p>
+                            Marks, Channels, Type of Visualization
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Interactive Features</h3>
+                        <p>
+                            tooltips, filters, hover 
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Key Takeaways</h3>
+                        <p>
+                           Insights, patterns, trends, story
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization 4 -->
+<div class="viz-card">
+    <h2 class="viz-title">Visualization 4: Purchase Amount by Gender & Age Group</h2>
+    
+    <div class="viz-placeholder">
+        <iframe src="DS4200_Project-main/d3_stackedbar/index.html" 
+                width="100%" 
+                height="600" 
+                frameborder="0"
+                style="border: none;">
+        </iframe>
+    </div>
+    
+
+    <div class="viz-description">
+        <div>
+            <h3>Description</h3>
+            <p>
+                Marks: Bars; Channels: Position (X: Gender), Length (Y: Purchase Amount), Color (Age Group); Type: Stacked Bar Chart showing purchase amounts by gender and age group in Massachusetts
+            </p>
+        </div>
+
+        <div>
+            <h3>Interactive Features</h3>
+            <p>
+                Radio button filters to toggle between viewing all age groups or specific age ranges (0-10, 11-20, 21-30, etc.)
+            </p>
+        </div>
+
+        <div>
+            <h3>Key Takeaways</h3>
+            <p>
+                Reveals spending patterns across different demographics in Massachusetts, showing how purchase behavior varies by gender and age group
+            </p>
+        </div>
+    </div>
+</div>
+            <!-- Visualization 5 -->
+            <div class="viz-card">
+                <h2 class="viz-title">Visualization 5: [Insert Title]</h2>
+                
+                <div class="viz-placeholder">
+        <iframe src="DS4200_Project-main/size_distribution.html" 
+                width="100%" 
+                height="600" 
+                frameborder="0"
+                style="border: none;">
+        </iframe>
+    </div>
+
+                <div class="viz-description">
+                     <div>
+                        <h3>Description</h3>
+                        <p>
+                            Marks, Channels, Type of Visualization
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Interactive Features</h3>
+                        <p>
+                            tooltips, filters, hover 
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Key Takeaways</h3>
+                        <p>
+                           Insights, patterns, trends, story
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+   <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                initializeMenu();
+            });
+
+        function initializeMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

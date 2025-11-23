@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Behavior - Findings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="content-page">
+        <div class="content-container">
+            <h1 class="page-title">Findings & Summary.</h1>
+            
+            <div class="content-card">
+                <h2>Key Insights</h2>
+                <p>
+                </p>
+                
+                <h3>Finding 1: [Insert Finding Title]</h3>
+                <p>
+                    Key Insight and why it matters
+
+                <h3>Finding 2: [Insert Finding Title]</h3>
+                <p>
+                    Key Insight and why it matters
+
+                </p>
+
+                <h3>Finding 3: [Insert Finding Title]</h3>
+                <p>
+                    Key Insight and why it matters
+                </p>
+            </div>
+
+            <div class="content-card">
+                <h2>Future Work</h2>
+                
+                <h3>Idea #1</h3>
+                <p>
+                   orem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel condimentum est, vitae sagittis libero. Sed nunc ante, placerat
+                </p>
+
+                <h3>Idea #2</h3>
+                <p>
+                   orem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel condimentum est, vitae sagittis libero. Sed nunc ante, placerat
+                </p>
+
+                <h3>Idea #3</h3>
+                <p>
+                   orem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel condimentum est, vitae sagittis libero. Sed nunc ante, placerat
+                </p>
+
+    
+            </div>
+
+            <div class="content-card">
+                <h2>What We Learned or Conclusion</h2>
+                <p>
+                    Through this project, ... valuable insights into consumer shopping
+                </p>
+                <p>
+                    Something about what we learned about the data (cleaning maybe) and what we learned about the process of creating the visualizations and using D3 and altair and regular python and impact of interactivity.
+                </p>
+                <p>
+                    Challenges and suprises?
+                </p>
+            </div>
+
+            
+        </div>
+    </main>
+
+   <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+                initializeMenu();
+            });
+
+        function initializeMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
