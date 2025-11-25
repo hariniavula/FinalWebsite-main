@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-2baeb9885b68d4355314eb385cdc84fe"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "count", "scale": {"scheme": "oranges"}, "title": "Number of Purchases (MA only)", "type": "quantitative"}, "opacity": {"condition": {"param": "param_8866a862d19228bc", "value": 1}, "value": 0.25}, "tooltip": [{"field": "Category", "title": "Category", "type": "nominal"}, {"field": "Season", "title": "Season", "type": "nominal"}, {"field": "count", "title": "Exact count", "type": "quantitative"}, {"field": "percent_of_season", "format": ".2f", "title": "Percent of MA season total", "type": "quantitative"}], "x": {"field": "Season", "sort": ["Winter", "Spring", "Summer", "Fall"], "title": "Season", "type": "nominal"}, "y": {"field": "Category", "title": "Product Category", "type": "nominal"}}, "height": 400, "params": [{"name": "param_8866a862d19228bc", "select": {"type": "point", "fields": ["Category"]}, "bind": "legend"}], "title": "Product Categories by Season for Massachusetts Customers", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-2baeb9885b68d4355314eb385cdc84fe": [{"Category": "Accessories", "Season": "Fall", "count": 4, "percent_of_season": 33.33333333333333}, {"Category": "Accessories", "Season": "Spring", "count": 3, "percent_of_season": 16.666666666666664}, {"Category": "Accessories", "Season": "Summer", "count": 7, "percent_of_season": 31.818181818181817}, {"Category": "Accessories", "Season": "Winter", "count": 4, "percent_of_season": 20.0}, {"Category": "Clothing", "Season": "Fall", "count": 3, "percent_of_season": 25.0}, {"Category": "Clothing", "Season": "Spring", "count": 10, "percent_of_season": 55.55555555555556}, {"Category": "Clothing", "Season": "Summer", "count": 8, "percent_of_season": 36.36363636363637}, {"Category": "Clothing", "Season": "Winter", "count": 13, "percent_of_season": 65.0}, {"Category": "Footwear", "Season": "Fall", "count": 4, "percent_of_season": 33.33333333333333}, {"Category": "Footwear", "Season": "Spring", "count": 4, "percent_of_season": 22.22222222222222}, {"Category": "Footwear", "Season": "Summer", "count": 4, "percent_of_season": 18.181818181818183}, {"Category": "Footwear", "Season": "Winter", "count": 2, "percent_of_season": 10.0}, {"Category": "Outerwear", "Season": "Fall", "count": 1, "percent_of_season": 8.333333333333332}, {"Category": "Outerwear", "Season": "Spring", "count": 1, "percent_of_season": 5.555555555555555}, {"Category": "Outerwear", "Season": "Summer", "count": 3, "percent_of_season": 13.636363636363635}, {"Category": "Outerwear", "Season": "Winter", "count": 1, "percent_of_season": 5.0}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
