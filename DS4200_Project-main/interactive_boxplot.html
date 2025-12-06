@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "axis": {"labelFontSize": 12, "titleFontSize": 13}, "title": {"fontSize": 14, "fontWeight": "bold"}}, "layer": [{"mark": {"type": "bar", "size": 60}, "encoding": {"color": {"field": "Incentive_Group", "legend": null, "scale": {"domain": ["Used Discount/Promo", "No Discount/Promo"], "range": ["#4ea758", "#e76f51"]}, "type": "nominal"}, "opacity": {"value": 0.7}, "tooltip": [{"field": "Incentive_Group", "title": "Category", "type": "nominal"}, {"field": "min", "format": "$.0f", "title": "Min", "type": "quantitative"}, {"field": "q1", "format": "$.0f", "title": "Q1 (25th)", "type": "quantitative"}, {"field": "median", "format": "$.0f", "title": "Median", "type": "quantitative"}, {"field": "mean", "format": "$.2f", "title": "Mean", "type": "quantitative"}, {"field": "q3", "format": "$.0f", "title": "Q3 (75th)", "type": "quantitative"}, {"field": "max", "format": "$.0f", "title": "Max", "type": "quantitative"}, {"field": "count", "format": ",d", "title": "Count", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "Incentive_Group", "title": "Incentive Usage", "type": "nominal"}, "y": {"field": "q1", "scale": {"domain": [0, 100]}, "title": "Purchase Amount (USD)", "type": "quantitative"}, "y2": {"field": "q3"}}, "title": "Purchase Amount by Incentive Usage in Massachusetts"}, {"mark": {"type": "tick", "color": "white", "size": 60, "thickness": 3}, "encoding": {"tooltip": [{"field": "Incentive_Group", "title": "Category", "type": "nominal"}, {"field": "median", "format": "$.0f", "title": "Median", "type": "quantitative"}], "x": {"field": "Incentive_Group", "type": "nominal"}, "y": {"field": "median", "type": "quantitative"}}}, {"mark": {"type": "rule", "size": 2}, "encoding": {"color": {"field": "Incentive_Group", "legend": null, "scale": {"domain": ["Used Discount/Promo", "No Discount/Promo"], "range": ["#4ea758", "#e76f51"]}, "type": "nominal"}, "x": {"field": "Incentive_Group", "type": "nominal"}, "y": {"field": "upper_whisker", "type": "quantitative"}, "y2": {"field": "q3"}}}, {"mark": {"type": "rule", "size": 2}, "encoding": {"color": {"field": "Incentive_Group", "legend": null, "scale": {"domain": ["Used Discount/Promo", "No Discount/Promo"], "range": ["#4ea758", "#e76f51"]}, "type": "nominal"}, "x": {"field": "Incentive_Group", "type": "nominal"}, "y": {"field": "q1", "type": "quantitative"}, "y2": {"field": "lower_whisker"}}}, {"mark": {"type": "tick", "size": 30, "thickness": 2}, "encoding": {"color": {"field": "Incentive_Group", "legend": null, "scale": {"domain": ["Used Discount/Promo", "No Discount/Promo"], "range": ["#4ea758", "#e76f51"]}, "type": "nominal"}, "x": {"field": "Incentive_Group", "type": "nominal"}, "y": {"field": "upper_whisker", "type": "quantitative"}}}, {"mark": {"type": "tick", "size": 30, "thickness": 2}, "encoding": {"color": {"field": "Incentive_Group", "legend": null, "scale": {"domain": ["Used Discount/Promo", "No Discount/Promo"], "range": ["#4ea758", "#e76f51"]}, "type": "nominal"}, "x": {"field": "Incentive_Group", "type": "nominal"}, "y": {"field": "lower_whisker", "type": "quantitative"}}}], "data": {"name": "data-e78930b472736c3d4ea1c128dab13696"}, "height": 400, "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-e78930b472736c3d4ea1c128dab13696": [{"Incentive_Group": "No Discount/Promo", "q1": 39.0, "median": 62.0, "q3": 78.0, "min": 20, "max": 99, "count": 37, "mean": 59.891891891891895, "iqr": 39.0, "lower_whisker": 20, "upper_whisker": 99}, {"Incentive_Group": "Used Discount/Promo", "q1": 48.0, "median": 66.0, "q3": 79.0, "min": 21, "max": 95, "count": 35, "mean": 61.94285714285714, "iqr": 31.0, "lower_whisker": 21, "upper_whisker": 95}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
